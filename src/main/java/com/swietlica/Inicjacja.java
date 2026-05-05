@@ -1,6 +1,6 @@
 package com.swietlica;
 
-import com.swietlica.Ekrany.EkranPowitalny;
+import com.swietlica.Frontend.EkranPowitalny;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -17,6 +17,7 @@ public class Inicjacja extends Application {
         stage.setScene(scene);
         stage.show();
         EkranPowitalny ek=fxmlLoader.getController();
-        ek.inicjujNasluchy();
+        ek.inicjujNasluchy(stage);
+
     }
 }

@@ -6,5 +6,5 @@ module com.swietlica {
 
     opens com.swietlica to javafx.fxml;
     exports com.swietlica;
-    opens com.swietlica.Ekrany to javafx.fxml;
+    opens com.swietlica.Frontend to javafx.fxml;
 }

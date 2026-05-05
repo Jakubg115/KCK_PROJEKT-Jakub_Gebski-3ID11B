@@ -13,11 +13,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<SplitPane fx:id="PanelGlowny" dividerPositions="0.9949832775919732" minHeight="0.0" minWidth="0.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.swietlica.Ekrany.EkranPowitalny">
+<SplitPane fx:id="PanelGlowny" dividerPositions="0.9949832775919732" minHeight="0.0" minWidth="0.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.swietlica.Frontend.EkranPowitalny">
   <items>
-      <VBox fx:id="witalny" alignment="TOP_CENTER" focusTraversable="true" minWidth="0.0">
+      <VBox fx:id="Witalny" alignment="TOP_CENTER" focusTraversable="true" minWidth="0.0">
          <children>
-            <Label fx:id="Tytul" onMouseClicked="#TekstKlikniety" text="Witamy w [Nazwa Aplikacji]">
+            <Label fx:id="Tytul" alignment="CENTER" ellipsisString="" graphicTextGap="5.0" nodeOrientation="RIGHT_TO_LEFT" onMouseClicked="#TekstKlikniety" text="Witamy w [Nazwa Aplikacji]" textAlignment="RIGHT" textOverrun="LEADING_WORD_ELLIPSIS">
                <font>
                   <Font name="Candara" size="40.0" />
                </font>
@@ -104,12 +104,12 @@
             </PasswordField>
             <HBox alignment="CENTER" prefWidth="200.0" spacing="50.0">
                <children>
-                  <Button fx:id="ProbaLogowania" mnemonicParsing="false" style="-fx-background-radius: 0; -fx-background-insets: 0; -fx-background-color: blue;" text="ZALOGUJ SIĘ" textFill="WHITE">
+                  <Button fx:id="ProbaLogowania" mnemonicParsing="false" onAction="#Walidacja" style="-fx-background-radius: 0; -fx-background-insets: 0; -fx-background-color: blue;" text="ZALOGUJ SIĘ" textFill="WHITE">
                      <font>
                         <Font name="Arial" size="15.0" />
                      </font>
                   </Button>
-                  <CheckBox fx:id="Pamietanie" mnemonicParsing="false" style="-fx-background-insets: 0;" text="Nie wyloguj mnie!" />
+                  <CheckBox fx:id="Pamietanie" mnemonicParsing="false" style="-fx-background-insets: 0;" text="Zapamiętaj mnie!" />
                </children>
                <VBox.margin>
                   <Insets bottom="10.0" top="20.0" />
@@ -128,7 +128,7 @@
                   <Font size="17.0" />
                </font>
             </Label>
-            <Button fx:id="Rejestracja" mnemonicParsing="false" style="-fx-background-radius: 0; -fx-background-insets: 0; -fx-background-color: blue;" text="ZRÓB TO TERAZ!" textFill="WHITE">
+            <Button fx:id="Rejestracja" mnemonicParsing="false" onAction="#InicjujRejestracje" style="-fx-background-radius: 0; -fx-background-insets: 0; -fx-background-color: blue;" text="ZRÓB TO TERAZ!" textFill="WHITE">
                <font>
                   <Font name="Arial" size="15.0" />
                </font>
