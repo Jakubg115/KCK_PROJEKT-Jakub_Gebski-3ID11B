@@ -11,11 +11,10 @@ import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-import javafx.stage.Window;
 import javafx.stage.WindowEvent;
 
 import java.io.IOException;
-import java.util.Timer;
+
 
 
 public class EkranPowitalny {
@@ -116,7 +115,6 @@ public class EkranPowitalny {
             public void handle(WindowEvent event) {
                 PanelGlowny.setDisable(false);
                 if(!kopia.isShowing()){kopia.show();}
-
             }
         });
 

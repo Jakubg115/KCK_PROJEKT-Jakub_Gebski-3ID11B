@@ -41,7 +41,7 @@
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="nowyUzytkownik" onMouseClicked="#InfoLogin" prefWidth="210.0" promptText="Litery, znaki interpunkcyjne i cyfry">
+                  <TextField fx:id="nowyUzytkownik" onMouseClicked="#InfoLogin" prefWidth="210.0" promptText="Litery, znaki interpunkcyjne i cyfry" style="-fx-background-insets: 0; -fx-border-color: black; -fx-background-radius: 0;">
                      <VBox.margin>
                         <Insets bottom="15.0" />
                      </VBox.margin>
@@ -54,7 +54,7 @@
                         <Insets left="10.0" />
                      </VBox.margin>
                   </Label>
-                  <PasswordField fx:id="noweHaslo" onMouseClicked="#InfoHaslo">
+                  <PasswordField fx:id="noweHaslo" onMouseClicked="#InfoHaslo" style="-fx-background-insets: 0; -fx-border-color: black; -fx-background-radius: 0;">
                      <VBox.margin>
                         <Insets bottom="15.0" />
                      </VBox.margin>
@@ -67,7 +67,7 @@
                         <Insets left="10.0" />
                      </VBox.margin>
                   </Label>
-                  <PasswordField fx:id="powtorzoneHaslo" onMouseClicked="#InfoHasPon">
+                  <PasswordField fx:id="powtorzoneHaslo" onMouseClicked="#InfoHasPon" style="-fx-background-insets: 0; -fx-border-color: black; -fx-background-radius: 0;">
                      <VBox.margin>
                         <Insets bottom="15.0" />
                      </VBox.margin>
@@ -80,7 +80,7 @@
                         <Insets left="10.0" />
                      </VBox.margin>
                   </Label>
-                  <TextField fx:id="mail" onMouseClicked="#InfoMail">
+                  <TextField fx:id="mail" onMouseClicked="#InfoMail" style="-fx-background-insets: 0; -fx-border-color: black; -fx-background-radius: 0;">
                      <VBox.margin>
                         <Insets bottom="5.0" />
                      </VBox.margin>
@@ -108,10 +108,13 @@
          </children>
       </HBox>
       <Separator prefWidth="200.0" />
-      <Button fx:id="przycisk" mnemonicParsing="false" onAction="#Walidacja" text="Utwórz konto">
+      <Button fx:id="przycisk" mnemonicParsing="false" onAction="#Walidacja" style="-fx-background-color: blue;" text="Utwórz konto" textFill="WHITE">
          <VBox.margin>
             <Insets bottom="10.0" top="10.0" />
          </VBox.margin>
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
       </Button>
    </children>
 </VBox>

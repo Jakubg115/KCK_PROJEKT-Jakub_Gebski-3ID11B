@@ -1,12 +1,7 @@
 package com.swietlica.Frontend;
 
-import javafx.beans.InvalidationListener;
-import javafx.beans.Observable;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -20,8 +15,6 @@ public class Rejestracja {
     private PasswordField noweHaslo,powtorzoneHaslo;
     @FXML
     private Label infoDlaUzytkownika,infoZwrotne;
-    @FXML
-    private Button przycisk;
 
     private Stage st;
 
