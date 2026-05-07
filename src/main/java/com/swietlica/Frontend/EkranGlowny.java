@@ -3,15 +3,18 @@ package com.swietlica.Frontend;
 import com.swietlica.Frontend.Komponenty.GraZListy.ObiektGra;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import org.kordamp.ikonli.Ikon;
-import org.kordamp.ikonli.javafx.FontIcon;
+import javafx.stage.WindowEvent;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class EkranGlowny {
@@ -57,6 +60,26 @@ public class EkranGlowny {
     public void przeczytajWybranyIndeks(){
         this.nazwaGry.setText(PobierzDanaGre(INDEKS).zwrocKontrolke().zwrocNazwe());
 
+    }
+
+    @FXML
+    public void zalaczPomoc() throws IOException {
+        FXMLLoader loader=new FXMLLoader(getClass().getResource("/com/swietlica/Pomoc.fxml"));
+        Stage pomoc=new Stage();
+        Parent root=loader.load();
+
+        pomoc.setScene(new Scene(root));
+
+
+        Pomoc pom=loader.getController();
+        pom.inicjuj(pomoc);
+        this.kopia.addEventHandler(WindowEvent.WINDOW_HIDDEN, new EventHandler<WindowEvent>() {
+            @Override
+            public void handle(WindowEvent event) {
+                pom.dajStage().close();
+            }
+        });
+        pomoc.show();
     }
 
 }
