@@ -93,9 +93,8 @@ public class EkranPowitalny {
     }
 
     @FXML
-    protected void InicjujGoscia()
-    {
-
+    protected void InicjujGoscia() throws IOException {
+        inicjujGlowny(true);
     }
 
     @FXML
@@ -120,7 +119,7 @@ public class EkranPowitalny {
 
     }
     @FXML
-    public void Walidacja() throws InterruptedException {
+    public void Walidacja() throws InterruptedException, IOException {
         String login=Login.getText();
         String haslo=Haslo.getText();
 
@@ -130,7 +129,7 @@ public class EkranPowitalny {
             OdpowiedzSerwera.setText("Zalogowano");
             Login.setStyle("-fx-border-color: black");
             Haslo.setStyle("-fx-border-color: black");
-
+            inicjujGlowny(false);
             kopia.hide();
         }
         else {
@@ -140,5 +139,19 @@ public class EkranPowitalny {
         }
     }
 
+    public void inicjujGlowny(boolean czyGosc) throws IOException {
+        Stage glowny=new Stage();
+        FXMLLoader l=new FXMLLoader(getClass().getResource("/com/swietlica/EkranGlowny.fxml"));
+        Parent root=l.load();
+        glowny.setScene(new Scene(root));
 
+        glowny.setTitle("Witamy w Swietlicy!!!");
+
+        EkranGlowny dostagea=l.getController();
+        dostagea.przekazScene(glowny);
+        dostagea.inicjacja(czyGosc?"Gosc":Login.getText());
+        glowny.show();
+        this.kopia.hide();
+
+    }
 }
