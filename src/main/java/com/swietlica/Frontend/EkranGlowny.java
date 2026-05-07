@@ -64,6 +64,7 @@ public class EkranGlowny {
 
     @FXML
     public void zalaczPomoc() throws IOException {
+
         FXMLLoader loader=new FXMLLoader(getClass().getResource("/com/swietlica/Pomoc.fxml"));
         Stage pomoc=new Stage();
         Parent root=loader.load();
@@ -80,6 +81,11 @@ public class EkranGlowny {
             }
         });
         pomoc.show();
+
+    }
+    @FXML
+    public void cos(){
+        this.lista.getChildren().add(new ObiektGra(this.lista.getChildren().size(),"asd"));
     }
 
 }
