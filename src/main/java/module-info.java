@@ -12,4 +12,5 @@ module com.swietlica {
     exports com.swietlica;
     opens com.swietlica.Frontend to javafx.fxml;
     opens com.swietlica.Frontend.Komponenty.GraZListy to javafx.fxml;
+    opens com.swietlica.Frontend.Komponenty.ElementDoEkranuPomoc to javafx.fxml;
 }

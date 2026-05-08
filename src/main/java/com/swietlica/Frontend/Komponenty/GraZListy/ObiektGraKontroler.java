@@ -1,5 +1,6 @@
 package com.swietlica.Frontend.Komponenty.GraZListy;
 
+import com.swietlica.Frontend.EkranGlowny;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -17,9 +18,14 @@ public class ObiektGraKontroler {
     @FXML
     private AnchorPane obiektDoListy;
 
+    private EkranGlowny ek;
+
     @FXML
     private ImageView obrazPodgladowy;
-    public int zwrocIndeks(){return this.indeksWliscie;}
+    public void zwrocIndeks(){
+        ek.zmienindeks(this.indeksWliscie);}
+    public int pobierzIndeks(){return this.indeksWliscie;}
+    public void przekazWskaznik(EkranGlowny ek){this.ek=ek;}
     public void ustawIndeks(int ind){
         this.indeksWliscie=ind;
     }

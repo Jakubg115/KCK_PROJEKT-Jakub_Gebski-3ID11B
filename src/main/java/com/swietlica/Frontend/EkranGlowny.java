@@ -1,9 +1,11 @@
 package com.swietlica.Frontend;
 
 import com.swietlica.Frontend.Komponenty.GraZListy.ObiektGra;
+import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -40,14 +42,7 @@ public class EkranGlowny {
         this.uzytkownik.setText(nazwa);
         ArrayList<ObiektGra> gotowce=new ArrayList<>();
         for (int i=0; i<10; i++){
-            gotowce.add(new ObiektGra(i,"Gra "+(i+1)));
-            int finalI = i;
-            gotowce.get(i).wstawHandler(new EventHandler<MouseEvent>() {
-                @Override
-                public void handle(MouseEvent event) {
-                    INDEKS=gotowce.get(finalI).zwrocKontrolke().zwrocIndeks();
-                }
-            });
+            gotowce.add(new ObiektGra(i,"Gra "+(i+1),this));
         }
         this.lista.getChildren().addAll(gotowce);
 
@@ -62,6 +57,8 @@ public class EkranGlowny {
 
     }
 
+    public void zmienindeks(int s){INDEKS=s;}
+
     @FXML
     public void zalaczPomoc() throws IOException {
 
@@ -70,10 +67,10 @@ public class EkranGlowny {
         Parent root=loader.load();
 
         pomoc.setScene(new Scene(root));
-
-
         Pomoc pom=loader.getController();
-        pom.inicjuj(pomoc);
+
+
+        pom.inicjuj(pomoc, lista.getChildren());
         this.kopia.addEventHandler(WindowEvent.WINDOW_HIDDEN, new EventHandler<WindowEvent>() {
             @Override
             public void handle(WindowEvent event) {
@@ -85,7 +82,8 @@ public class EkranGlowny {
     }
     @FXML
     public void cos(){
-        this.lista.getChildren().add(new ObiektGra(this.lista.getChildren().size(),"asd"));
+        int rozmiar=lista.getChildren().size();
+        lista.getChildren().add(new ObiektGra(rozmiar,"Gra "+(rozmiar+1),this));
     }
 
 }
