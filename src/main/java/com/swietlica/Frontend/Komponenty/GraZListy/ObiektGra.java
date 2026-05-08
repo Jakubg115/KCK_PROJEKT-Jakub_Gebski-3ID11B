@@ -1,9 +1,7 @@
 package com.swietlica.Frontend.Komponenty.GraZListy;
 
 import com.swietlica.Frontend.EkranGlowny;
-import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
@@ -22,6 +20,7 @@ public class ObiektGra extends AnchorPane {
             this.kontrolka.ustawIndeks(indeks);
             this.kontrolka.ustawNazwe(nazwaGry);
             this.kontrolka.przekazWskaznik(wskaznik);
+
 
         } catch (IOException e) {
             throw new RuntimeException(e);

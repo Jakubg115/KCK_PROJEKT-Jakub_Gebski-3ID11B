@@ -21,7 +21,6 @@ public class EkranPowitalny {
 
     private static String TYTUL_PROGRAMU="Świetlica PL";
 
-    public String PobierzTytul(){return TYTUL_PROGRAMU;}
     private boolean logowanieflaga=false;
     public void ustawflageLogowania(boolean flaga){this.logowanieflaga=flaga;}
 
@@ -119,7 +118,7 @@ public class EkranPowitalny {
 
     }
     @FXML
-    public void Walidacja() throws InterruptedException, IOException {
+    public void Walidacja() throws IOException {
         String login=Login.getText();
         String haslo=Haslo.getText();
 
@@ -130,6 +129,7 @@ public class EkranPowitalny {
             Login.setStyle("-fx-border-color: black");
             Haslo.setStyle("-fx-border-color: black");
             inicjujGlowny(false);
+            this.Tytul.setText("asdasdasd");
             kopia.hide();
         }
         else {

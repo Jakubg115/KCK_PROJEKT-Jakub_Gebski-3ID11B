@@ -16,14 +16,15 @@ public class ObiektPomocKontroller {
     @FXML
     private Label nazwa;
 
-    public void inicjuj(ObiektGra gra, Pomoc wskaznik){
+    public void inicjuj(ObiektGra gra){
         this.nazwa.setText(gra.zwrocKontrolke().zwrocNazwe());
         this.indeks=gra.zwrocKontrolke().pobierzIndeks();
-        pom=wskaznik;
     }
 
     public void zwrocIndeks(){
         pom.zmienIndeks(this.indeks);
     }
+    public void przekazWskaznik(Pomoc wskaznik){pom=wskaznik;}
+
 
 }

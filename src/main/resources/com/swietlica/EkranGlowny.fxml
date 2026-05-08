@@ -55,7 +55,7 @@
                 <MenuItem mnemonicParsing="false" text="Kontakt" />
                   <MenuItem mnemonicParsing="false" text="Zgłoś problem z programem" />
                   <SeparatorMenuItem mnemonicParsing="false" />
-                  <MenuItem mnemonicParsing="false" text="Jak grać w te gry?" />
+                  <MenuItem mnemonicParsing="false" onAction="#inicjujPomocMenu" text="Jak grać w te gry?" />
                   <MenuItem mnemonicParsing="false" text="Jak korzystać z programu?" />
                   <SeparatorMenuItem mnemonicParsing="false" />
                   <MenuItem mnemonicParsing="false" text="O programie" />
@@ -72,17 +72,21 @@
          <children>
             <Label fx:id="uzytkownik" text="NAZWA UŻYTKOWNIKA" textFill="BLUE">
                <HBox.margin>
-                  <Insets right="50.0" />
+                  <Insets right="40.0" />
                </HBox.margin>
                <font>
                   <Font name="Cambria Bold" size="16.0" />
                </font>
             </Label>
-            <ImageView fx:id="profil" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../Icons/test.png" />
-               </image>
-            </ImageView>
+            <HBox alignment="CENTER" style="-fx-background-color: lightgray;">
+               <children>
+                  <ImageView fx:id="profil" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Icons/DomyslnaIkonka.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </HBox>
          </children>
       </HBox>
       <Label fx:id="iloscGraczy" layoutX="21.0" layoutY="79.0" text="Ilość graczy Online: " AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="80.0">

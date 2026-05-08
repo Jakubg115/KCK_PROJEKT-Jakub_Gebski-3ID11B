@@ -1,17 +1,14 @@
 package com.swietlica.Frontend;
 
 import com.swietlica.Frontend.Komponenty.GraZListy.ObiektGra;
-import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
@@ -59,18 +56,17 @@ public class EkranGlowny {
 
     public void zmienindeks(int s){INDEKS=s;}
 
-    @FXML
-    public void zalaczPomoc() throws IOException {
-
+    private void pomocMenu(int indeks) throws IOException {
         FXMLLoader loader=new FXMLLoader(getClass().getResource("/com/swietlica/Pomoc.fxml"));
         Stage pomoc=new Stage();
         Parent root=loader.load();
 
         pomoc.setScene(new Scene(root));
         Pomoc pom=loader.getController();
+        pom.wstawStage(pomoc);
+        pomoc.setTitle("Instrukcje oblugi gier");
 
-
-        pom.inicjuj(pomoc, lista.getChildren());
+        pom.inicjuj(lista,indeks);
         this.kopia.addEventHandler(WindowEvent.WINDOW_HIDDEN, new EventHandler<WindowEvent>() {
             @Override
             public void handle(WindowEvent event) {
@@ -78,8 +74,18 @@ public class EkranGlowny {
             }
         });
         pomoc.show();
-
     }
+
+    @FXML
+    public void zalaczPomoc() throws IOException {
+        pomocMenu(INDEKS);
+    }
+
+    @FXML
+    public void inicjujPomocMenu() throws IOException {
+        pomocMenu(-1);
+    }
+
     @FXML
     public void cos(){
         int rozmiar=lista.getChildren().size();
