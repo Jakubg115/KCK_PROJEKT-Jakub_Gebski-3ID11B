@@ -92,4 +92,13 @@ public class EkranGlowny {
         lista.getChildren().add(new ObiektGra(rozmiar,"Gra "+(rozmiar+1),this));
     }
 
+    @FXML
+    public void otworzPokoj() throws IOException {
+        FXMLLoader loader=new FXMLLoader(getClass().getResource("/com/swietlica/Pokoje.fxml"));
+        Parent root=loader.load();
+        Stage pokoj=new Stage();
+        pokoj.setScene(new Scene(root));
+        pokoj.show();
+    }
+
 }
