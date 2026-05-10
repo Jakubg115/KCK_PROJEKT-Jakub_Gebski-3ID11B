@@ -8,8 +8,6 @@
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -18,7 +16,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.swietlica.Frontend.Pokoje">
    <children>
       <Label layoutX="77.0" layoutY="30.0" text="NAZWA GRY" textFill="BLUE" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="10.0">
          <font>
@@ -34,7 +32,7 @@
                      <children>
                         <ScrollPane fitToWidth="true" hbarPolicy="NEVER" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <content>
-                              <VBox alignment="CENTER">
+                              <VBox fx:id="listaPokoji" alignment="CENTER">
                                  <children>
                                     <GridPane minHeight="-Infinity" style="-fx-border-color: lightgray;" VBox.vgrow="ALWAYS">
                                        <columnConstraints>
@@ -49,133 +47,6 @@
                                           <Label text="Numer Pokoju" GridPane.halignment="CENTER" />
                                           <Label alignment="CENTER" text="Gracze" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
                                           <Label text="Postep" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
-                                       </children>
-                                    </GridPane>
-                                    <GridPane minHeight="-Infinity" style="-fx-border-color: lightgray;">
-                                       <columnConstraints>
-                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                       </columnConstraints>
-                                       <rowConstraints>
-                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                       </rowConstraints>
-                                       <children>
-                                          <Label text="#1" GridPane.halignment="CENTER" />
-                                          <Label alignment="CENTER" text="- Gracz 1" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
-                                          <Label text="W oczekiwaniu" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
-                                          <Label alignment="CENTER" text="- Gracz 2" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-                                          <Label alignment="CENTER" text="-" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-                                       </children>
-                                    </GridPane>
-                                    <GridPane minHeight="-Infinity" style="-fx-border-color: lightgray;">
-                                       <columnConstraints>
-                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                       </columnConstraints>
-                                       <rowConstraints>
-                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                       </rowConstraints>
-                                       <children>
-                                          <Label text="#2" GridPane.halignment="CENTER" />
-                                          <Label alignment="CENTER" text="- Gracz 1" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
-                                          <Label text="W trakcie" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
-                                          <Label alignment="CENTER" text="- Gracz 2" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-                                       </children>
-                                    </GridPane>
-                                    <GridPane minHeight="-Infinity" style="-fx-border-color: lightgray;">
-                                       <columnConstraints>
-                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                       </columnConstraints>
-                                       <rowConstraints>
-                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                       </rowConstraints>
-                                       <children>
-                                          <Label text="#3" GridPane.halignment="CENTER" />
-                                          <Label alignment="CENTER" text="- Gracz 1" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
-                                          <Label text="W trakcie" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
-                                          <Label alignment="CENTER" text="- Gracz 2" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-                                          <Label alignment="CENTER" text="- Gracz 3" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-                                       </children>
-                                    </GridPane>
-                                    <GridPane minHeight="-Infinity" style="-fx-border-color: lightgray;">
-                                       <columnConstraints>
-                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                       </columnConstraints>
-                                       <rowConstraints>
-                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                       </rowConstraints>
-                                       <children>
-                                          <Label text="#4" GridPane.halignment="CENTER" />
-                                          <Label alignment="CENTER" text="- Gracz 1" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
-                                          <Label text="W oczekiwaniu" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
-                                          <Label alignment="CENTER" text="-" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-                                       </children>
-                                    </GridPane>
-                                    <GridPane minHeight="-Infinity" style="-fx-border-color: lightgray;">
-                                       <columnConstraints>
-                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                       </columnConstraints>
-                                       <rowConstraints>
-                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                       </rowConstraints>
-                                       <children>
-                                          <Label text="#5" GridPane.halignment="CENTER" />
-                                          <Label alignment="CENTER" text="- Gracz 1" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
-                                          <Label text="W trakcie" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
-                                          <Label alignment="CENTER" text="- Gracz 2" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-                                          <Label alignment="CENTER" text="- Gracz 3" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-                                          <Label alignment="CENTER" text="- Gracz 4" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
-                                       </children>
-                                    </GridPane>
-                                    <GridPane minHeight="-Infinity" style="-fx-border-color: lightgray;">
-                                       <columnConstraints>
-                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                       </columnConstraints>
-                                       <rowConstraints>
-                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                       </rowConstraints>
-                                       <children>
-                                          <Label text="#6" GridPane.halignment="CENTER" />
-                                          <Label alignment="CENTER" text="-" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
-                                          <Label text="W oczekiwaniu" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
-                                          <Label alignment="CENTER" text="-" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-                                       </children>
-                                    </GridPane>
-                                    <GridPane minHeight="-Infinity" style="-fx-border-color: lightgray;">
-                                       <columnConstraints>
-                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                       </columnConstraints>
-                                       <rowConstraints>
-                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                       </rowConstraints>
-                                       <children>
-                                          <Label text="#7" GridPane.halignment="CENTER" />
-                                          <Label alignment="CENTER" text="- Gracz 1" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
-                                          <Label text="W trakcie" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
-                                          <Label alignment="CENTER" text="- Gracz 2" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
                                        </children>
                                     </GridPane>
                                  </children>
@@ -211,161 +82,7 @@
          <children>
             <ScrollPane fitToWidth="true" hbarPolicy="NEVER" layoutX="50.0" layoutY="68.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <content>
-                  <VBox style="-fx-background-color: lightgray;">
-                     <children>
-                        <GridPane style="-fx-border-color: gray;" VBox.vgrow="ALWAYS">
-                          <columnConstraints>
-                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="93.0" minWidth="10.0" prefWidth="51.0" />
-                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="146.0" minWidth="10.0" prefWidth="146.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                          </columnConstraints>
-                          <rowConstraints>
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                          </rowConstraints>
-                           <children>
-                              <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.vgrow="ALWAYS">
-                                 <image>
-                                    <Image url="@../../Icons/DomyslnaIkonka.png" />
-                                 </image>
-                              </ImageView>
-                              <Label text="- Gracz 1" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
-                              <Label text="#123" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
-                           </children>
-                        </GridPane>
-                        <GridPane style="-fx-border-color: gray;">
-                           <columnConstraints>
-                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="93.0" minWidth="10.0" prefWidth="51.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="146.0" minWidth="10.0" prefWidth="146.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                           </columnConstraints>
-                           <rowConstraints>
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                           </rowConstraints>
-                           <children>
-                              <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.vgrow="ALWAYS">
-                                 <image>
-                                    <Image url="@../../Icons/DomyslnaIkonka.png" />
-                                 </image>
-                              </ImageView>
-                              <Label text="- Gracz 2" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
-                              <Label text="#20" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
-                           </children>
-                        </GridPane>
-                        <GridPane style="-fx-border-color: gray;">
-                           <columnConstraints>
-                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="93.0" minWidth="10.0" prefWidth="51.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="146.0" minWidth="10.0" prefWidth="146.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                           </columnConstraints>
-                           <rowConstraints>
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                           </rowConstraints>
-                           <children>
-                              <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.vgrow="ALWAYS">
-                                 <image>
-                                    <Image url="@../../Icons/DomyslnaIkonka.png" />
-                                 </image>
-                              </ImageView>
-                              <Label text="- Gracz 3" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
-                              <Label text="#250" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
-                           </children>
-                        </GridPane>
-                        <GridPane style="-fx-border-color: gray;">
-                           <columnConstraints>
-                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="93.0" minWidth="10.0" prefWidth="51.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="146.0" minWidth="10.0" prefWidth="146.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                           </columnConstraints>
-                           <rowConstraints>
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                           </rowConstraints>
-                           <children>
-                              <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.vgrow="ALWAYS">
-                                 <image>
-                                    <Image url="@../../Icons/DomyslnaIkonka.png" />
-                                 </image>
-                              </ImageView>
-                              <Label text="- Gracz 4" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
-                              <Label text="#590" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
-                           </children>
-                        </GridPane>
-                        <GridPane style="-fx-border-color: gray;">
-                           <columnConstraints>
-                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="93.0" minWidth="10.0" prefWidth="51.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="146.0" minWidth="10.0" prefWidth="146.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                           </columnConstraints>
-                           <rowConstraints>
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                           </rowConstraints>
-                           <children>
-                              <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.vgrow="ALWAYS">
-                                 <image>
-                                    <Image url="@../../Icons/DomyslnaIkonka.png" />
-                                 </image>
-                              </ImageView>
-                              <Label text="- Gracz 5" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
-                              <Label text="#643" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
-                           </children>
-                        </GridPane>
-                        <GridPane style="-fx-border-color: gray;">
-                           <columnConstraints>
-                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="93.0" minWidth="10.0" prefWidth="51.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="146.0" minWidth="10.0" prefWidth="146.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                           </columnConstraints>
-                           <rowConstraints>
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                           </rowConstraints>
-                           <children>
-                              <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.vgrow="ALWAYS">
-                                 <image>
-                                    <Image url="@../../Icons/DomyslnaIkonka.png" />
-                                 </image>
-                              </ImageView>
-                              <Label text="- Gracz 6" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
-                              <Label text="#987" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
-                           </children>
-                        </GridPane>
-                        <GridPane style="-fx-border-color: gray;">
-                           <columnConstraints>
-                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="93.0" minWidth="10.0" prefWidth="51.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="146.0" minWidth="10.0" prefWidth="146.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                           </columnConstraints>
-                           <rowConstraints>
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                           </rowConstraints>
-                           <children>
-                              <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.vgrow="ALWAYS">
-                                 <image>
-                                    <Image url="@../../Icons/DomyslnaIkonka.png" />
-                                 </image>
-                              </ImageView>
-                              <Label text="- Gracz 7" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
-                              <Label text="#54" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
-                           </children>
-                        </GridPane>
-                        <GridPane style="-fx-border-color: gray;">
-                           <columnConstraints>
-                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="93.0" minWidth="10.0" prefWidth="51.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="146.0" minWidth="10.0" prefWidth="146.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                           </columnConstraints>
-                           <rowConstraints>
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                           </rowConstraints>
-                           <children>
-                              <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.vgrow="ALWAYS">
-                                 <image>
-                                    <Image url="@../../Icons/DomyslnaIkonka.png" />
-                                 </image>
-                              </ImageView>
-                              <Label text="- Gracz 8" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
-                              <Label text="#764" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
-                           </children>
-                        </GridPane>
-                     </children></VBox>
+                  <VBox fx:id="listaGraczy" style="-fx-background-color: lightgray;" />
                </content>
             </ScrollPane>
          </children>
@@ -379,5 +96,6 @@
             </Label>
          </children>
       </HBox>
+      <Button layoutX="554.0" layoutY="20.0" mnemonicParsing="false" onAction="#wrocDoGlownego" text="Wróć" AnchorPane.rightAnchor="102.0" AnchorPane.topAnchor="20.0" />
    </children>
 </AnchorPane>

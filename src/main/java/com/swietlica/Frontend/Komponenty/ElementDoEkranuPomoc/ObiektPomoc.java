@@ -22,6 +22,6 @@ public class ObiektPomoc extends HBox {
         this.gra=gra;
         this.kontrolka.inicjuj(this.gra);
     }
-    public ObiektPomocKontroller zwrocKontrolke(){return this.kontrolka;}
-    public String ZwrocNazwe(){return this.gra.zwrocKontrolke().zwrocNazwe();}
+
+    public String ZwrocNazwe(){return this.gra.zwrocNazwe();}
 }

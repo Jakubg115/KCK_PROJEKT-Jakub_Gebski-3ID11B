@@ -4,27 +4,22 @@ import com.swietlica.Frontend.Komponenty.GraZListy.ObiektGra;
 import com.swietlica.Frontend.Pomoc;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
-import javafx.scene.layout.HBox;
 
 public class ObiektPomocKontroller {
     private int indeks;
 
-    private Pomoc pom;
+    private Pomoc wskaznik;
 
-    @FXML
-    private HBox ramka;
     @FXML
     private Label nazwa;
 
     public void inicjuj(ObiektGra gra){
-        this.nazwa.setText(gra.zwrocKontrolke().zwrocNazwe());
-        this.indeks=gra.zwrocKontrolke().pobierzIndeks();
+        this.nazwa.setText(gra.zwrocNazwe());
+        this.indeks=gra.pobierzIndeks();
     }
 
-    public void zwrocIndeks(){
-        pom.zmienIndeks(this.indeks);
-    }
-    public void przekazWskaznik(Pomoc wskaznik){pom=wskaznik;}
+    public void zwrocIndeks(){wskaznik.zmienIndeks(this.indeks);}
+    public void przekazWskaznik(Pomoc wskaz){this.wskaznik=wskaz;}
 
 
 }

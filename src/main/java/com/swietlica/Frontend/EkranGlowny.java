@@ -50,8 +50,7 @@ public class EkranGlowny {
     }
 
     public void przeczytajWybranyIndeks(){
-        this.nazwaGry.setText(PobierzDanaGre(INDEKS).zwrocKontrolke().zwrocNazwe());
-
+        this.nazwaGry.setText(PobierzDanaGre(INDEKS).zwrocNazwe());
     }
 
     public void zmienindeks(int s){INDEKS=s;}
@@ -96,9 +95,13 @@ public class EkranGlowny {
     public void otworzPokoj() throws IOException {
         FXMLLoader loader=new FXMLLoader(getClass().getResource("/com/swietlica/Pokoje.fxml"));
         Parent root=loader.load();
-        Stage pokoj=new Stage();
-        pokoj.setScene(new Scene(root));
-        pokoj.show();
+        Pokoje pok=loader.getController();
+        pok.przekazSceny(this.kopia);
+        this.kopia.setScene(new Scene(root));
+        String[] nazwy={"Gracz 1","Gracz 2","Gracz 3","Gracz 4"};
+        pok.dodajpokoj(3,nazwy);
+
+
     }
 
 }

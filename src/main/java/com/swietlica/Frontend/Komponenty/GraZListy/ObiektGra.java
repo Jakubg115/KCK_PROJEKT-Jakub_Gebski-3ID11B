@@ -28,4 +28,6 @@ public class ObiektGra extends AnchorPane {
     }
 
     public ObiektGraKontroler zwrocKontrolke(){return this.kontrolka;}
+    public String zwrocNazwe(){return zwrocKontrolke().zwrocNazwe();}
+    public int pobierzIndeks(){return zwrocKontrolke().pobierzIndeks();}
 }
