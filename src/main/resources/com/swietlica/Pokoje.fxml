@@ -18,7 +18,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.swietlica.Frontend.Pokoje">
    <children>
-      <Label layoutX="77.0" layoutY="30.0" text="NAZWA GRY" textFill="BLUE" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="10.0">
+      <Label fx:id="nazwaGry" layoutX="77.0" layoutY="30.0" text="NAZWA GRY" textFill="BLUE" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="10.0">
          <font>
             <Font name="System Bold" size="30.0" />
          </font>
@@ -32,7 +32,7 @@
                      <children>
                         <ScrollPane fitToWidth="true" hbarPolicy="NEVER" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <content>
-                              <VBox fx:id="listaPokoji" alignment="CENTER">
+                              <VBox fx:id="listaPokoji" alignment="CENTER" onMouseClicked="#zwrocIndeksPokoj">
                                  <children>
                                     <GridPane minHeight="-Infinity" style="-fx-border-color: lightgray;" VBox.vgrow="ALWAYS">
                                        <columnConstraints>
@@ -96,6 +96,9 @@
             </Label>
          </children>
       </HBox>
-      <Button layoutX="554.0" layoutY="20.0" mnemonicParsing="false" onAction="#wrocDoGlownego" text="Wróć" AnchorPane.rightAnchor="102.0" AnchorPane.topAnchor="20.0" />
+      <Button fx:id="wroc" layoutX="554.0" layoutY="20.0" mnemonicParsing="false" onAction="#wrocDoGlownego" onMousePressed="#wrocKomunikatON" onMouseReleased="#wrocKomunikatOFF" style="-fx-background-insets: 0; -fx-background-radius: 0; -fx-background-color: blue; -fx-text-fill: white;" text="Wróć do ekranu głównego" AnchorPane.rightAnchor="80.0" AnchorPane.topAnchor="20.0">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></Button>
    </children>
 </AnchorPane>

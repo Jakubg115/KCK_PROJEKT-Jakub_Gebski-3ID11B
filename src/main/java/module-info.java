@@ -7,6 +7,7 @@ module com.swietlica {
     requires java.desktop;
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.ikonli.core;
+    requires com.google.gson;
 
     opens com.swietlica to javafx.fxml;
     exports com.swietlica;

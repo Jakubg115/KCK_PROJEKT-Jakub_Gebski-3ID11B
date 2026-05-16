@@ -17,23 +17,37 @@
   <items>
       <VBox fx:id="Witalny" alignment="TOP_CENTER" focusTraversable="true" minWidth="0.0">
          <children>
-            <Label fx:id="Tytul" alignment="CENTER" ellipsisString="" graphicTextGap="5.0" nodeOrientation="RIGHT_TO_LEFT" onMouseClicked="#TekstKlikniety" text="Witamy w [Nazwa Aplikacji]" textAlignment="RIGHT" textOverrun="LEADING_WORD_ELLIPSIS">
-               <font>
-                  <Font name="Candara" size="40.0" />
-               </font>
+            <HBox alignment="CENTER" style="-fx-background-color: white;" VBox.vgrow="NEVER">
                <VBox.margin>
                   <Insets top="50.0" />
                </VBox.margin>
-            </Label>
-            <Label fx:id="Opis" text="Miejsce pełne wrażeń i wyzwań">
-               <font>
-                  <Font name="Candara" size="21.0" />
-               </font>
+               <children>
+                  <Label fx:id="Tytul" alignment="CENTER" ellipsisString="" graphicTextGap="5.0" nodeOrientation="RIGHT_TO_LEFT" onMouseClicked="#TekstKlikniety" text="Witamy w [Nazwa Aplikacji]" textAlignment="CENTER" textOverrun="LEADING_WORD_ELLIPSIS">
+                     <font>
+                        <Font name="Candara" size="40.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox fx:id="ramkaOpis" alignment="CENTER" style="-fx-background-color: white;">
                <VBox.margin>
                   <Insets top="30.0" />
                </VBox.margin>
-            </Label>
-            <Button fx:id="WyborLogowanie" alignment="TOP_CENTER" contentDisplay="CENTER" graphicTextGap="3.0" mnemonicParsing="false" onAction="#InicjujLogowanie" style="-fx-background-insets: 0; -fx-background-color: blue; -fx-background-radius: 0;" text="Dołącz do naszego grona" textFill="WHITE">
+               <children>
+                  <Label fx:id="Opis" text="Miejsce pełne wrażeń i wyzwań">
+                     <font>
+                        <Font name="Candara" size="21.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </HBox>
+            <Button fx:id="wyborLogowanie" alignment="TOP_CENTER" contentDisplay="CENTER" graphicTextGap="3.0" mnemonicParsing="false" onAction="#InicjujLogowanie" onMousePressed="#onlineKomunikatON" onMouseReleased="#onlineKomunikatOFF" style="-fx-background-insets: 0; -fx-background-color: blue; -fx-background-radius: 0;" text="Dołącz do naszego grona" textFill="WHITE">
                <VBox.margin>
                   <Insets top="50.0" />
                </VBox.margin>
@@ -41,25 +55,17 @@
                   <Font name="Arial Bold" size="20.0" />
                </font>
             </Button>
-            <Label text="albo">
-               <font>
-                  <Font name="Caladea" size="17.0" />
-               </font>
-               <VBox.margin>
-                  <Insets top="15.0" />
-               </VBox.margin>
-            </Label>
-            <Button fx:id="WyborGosc" alignment="TOP_CENTER" contentDisplay="CENTER" graphicTextGap="3.0" mnemonicParsing="false" onAction="#InicjujGoscia" style="-fx-background-insets: 0; -fx-background-color: blue; -fx-background-radius: 0;" text="Wejdź jako gość" textFill="WHITE">
+            <Button fx:id="wyborGosc" alignment="TOP_CENTER" contentDisplay="CENTER" graphicTextGap="3.0" mnemonicParsing="false" onAction="#InicjujGoscia" onMousePressed="#offlineKomunikatON" onMouseReleased="#offlineKomunikatOFF" style="-fx-background-insets: 0; -fx-background-color: blue; -fx-background-radius: 0;" text="Wejdź jako gość" textFill="WHITE">
                <font>
                   <Font name="Arial Bold" size="20.0" />
                </font>
                <VBox.margin>
-                  <Insets top="15.0" />
+                  <Insets top="50.0" />
                </VBox.margin>
             </Button>
          </children>
       </VBox>
-      <VBox fx:id="EkranLogowania" alignment="TOP_CENTER" minWidth="0.0">
+      <VBox fx:id="EkranLogowania" alignment="TOP_CENTER" minWidth="0.0" style="-fx-background-color: white;">
          <children>
             <HBox alignment="CENTER" prefHeight="50.0" style="-fx-background-color: blue;">
                <children>
@@ -104,9 +110,9 @@
             </PasswordField>
             <HBox alignment="CENTER" prefWidth="200.0" spacing="50.0">
                <children>
-                  <Button fx:id="ProbaLogowania" mnemonicParsing="false" onAction="#Walidacja" style="-fx-background-radius: 0; -fx-background-insets: 0; -fx-background-color: blue;" text="ZALOGUJ SIĘ" textFill="WHITE">
+                  <Button fx:id="probaLogowania" mnemonicParsing="false" onAction="#Walidacja" onMousePressed="#walKomunikatON" onMouseReleased="#walKomunikatOFF" style="-fx-background-radius: 0; -fx-background-insets: 0; -fx-background-color: blue;" text="ZALOGUJ SIĘ" textFill="WHITE">
                      <font>
-                        <Font name="Arial" size="15.0" />
+                        <Font name="Arial Bold" size="15.0" />
                      </font>
                   </Button>
                   <CheckBox fx:id="Pamietanie" mnemonicParsing="false" style="-fx-background-insets: 0;" text="Zapamiętaj mnie!" />
@@ -128,9 +134,9 @@
                   <Font size="17.0" />
                </font>
             </Label>
-            <Button fx:id="Rejestracja" mnemonicParsing="false" onAction="#InicjujRejestracje" style="-fx-background-radius: 0; -fx-background-insets: 0; -fx-background-color: blue;" text="ZRÓB TO TERAZ!" textFill="WHITE">
+            <Button fx:id="rejestracja" mnemonicParsing="false" onAction="#InicjujRejestracje" onMousePressed="#rejKomunikatON" onMouseReleased="#rejKomunikatOFF" style="-fx-background-radius: 0; -fx-background-insets: 0; -fx-background-color: blue;" text="ZRÓB TO TERAZ!" textFill="WHITE">
                <font>
-                  <Font name="Arial" size="15.0" />
+                  <Font name="Arial Bold" size="15.0" />
                </font>
             </Button>
          </children>

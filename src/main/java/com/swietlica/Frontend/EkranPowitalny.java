@@ -1,5 +1,6 @@
 package com.swietlica.Frontend;
 
+import javafx.animation.*;
 import javafx.beans.InvalidationListener;
 import javafx.beans.Observable;
 import javafx.event.EventHandler;
@@ -8,16 +9,20 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.layout.VBox;
+import javafx.scene.image.Image;
+import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
+import javafx.util.Duration;
 
 import java.io.IOException;
 
 
-
 public class EkranPowitalny {
+
+    private String logowanie="Admin",haslowanie="Admin";
+
 
     private static String TYTUL_PROGRAMU="Świetlica PL";
 
@@ -27,21 +32,9 @@ public class EkranPowitalny {
     private boolean easterEgg=false;
 /*                    Kontrolki                     */
     @FXML
-    private VBox EkranLogowania;
+    private Button wyborLogowanie,wyborGosc,probaLogowania,rejestracja;
     @FXML
-    private VBox Witalny;
-    @FXML
-    private Button WyborGosc;
-    @FXML
-    private Button WyborLogowanie;
-    @FXML
-    private Button ProbaLogowania;
-    @FXML
-    private Button Rejestracja;
-    @FXML
-    private Label Tytul,Opis;
-    @FXML
-    private Label OdpowiedzSerwera;
+    private Label Tytul,OdpowiedzSerwera;
     @FXML
     private SplitPane PanelGlowny;
     @FXML
@@ -50,25 +43,42 @@ public class EkranPowitalny {
     private PasswordField Haslo;
     @FXML
     private CheckBox Pamietanie;
+    @FXML
+    private HBox ramkaOpis;
 
     private Stage kopia;
+
+    private SplitPane.Divider rozdzialka;
 
     private final InvalidationListener nasluch=new InvalidationListener() {
         @Override
         public void invalidated(Observable observable) {
-            double pozycjarozdzialki=PanelGlowny.getDividerPositions()[0];
+            double pozycjarozdzialki=rozdzialka.getPosition();
             boolean flaga=pozycjarozdzialki<=0.6;
             przejscieMiedzyStronami(flaga);
             ustawflageLogowania(flaga);
-            Tytul.setText("Witaj w "+TYTUL_PROGRAMU);
-
         }
     };
 
     public void inicjujNasluchy(Stage stage){
         Tytul.setText("Witaj w "+TYTUL_PROGRAMU);
-        PanelGlowny.getDividers().get(0).positionProperty().addListener(nasluch);
+        rozdzialka=PanelGlowny.getDividers().get(0);
+        rozdzialka.positionProperty().addListener(nasluch);
         this.kopia=stage;
+        BackgroundImage image=new BackgroundImage(
+                new Image(
+                        "bgImage.png",
+                        this.kopia.getWidth(),
+                        this.kopia.getHeight(),
+                        true,true),
+                BackgroundRepeat.NO_REPEAT,
+                BackgroundRepeat.NO_REPEAT,
+                BackgroundPosition.DEFAULT,
+                BackgroundSize.DEFAULT);
+
+        PanelGlowny.setBackground(new Background(image));
+
+        this.kopia.setResizable(false);
     }
 
     @FXML
@@ -82,13 +92,17 @@ public class EkranPowitalny {
     protected void InicjujLogowanie()
     {
         ustawflageLogowania(!this.logowanieflaga);
-        PanelGlowny.setDividerPosition(0,this.logowanieflaga?0.4:1);
+        KeyValue x=new KeyValue(rozdzialka.positionProperty(),this.logowanieflaga?0.4:1,Interpolator.EASE_BOTH);
+        KeyFrame frame=new KeyFrame(Duration.seconds(1),x);
+        Timeline timeline=new Timeline(frame);
+        timeline.play();
+
     }
 
     public void przejscieMiedzyStronami(boolean flaga){
-        WyborLogowanie.setText(flaga?"Wróć":"Dołącz do naszego grona");
-        Opis.setVisible(!flaga);
-        EkranLogowania.setVisible(flaga);
+        wyborLogowanie.setText(flaga?"Wróć":"Dołącz do naszego grona");
+        ramkaOpis.setVisible(!flaga);
+
     }
 
     @FXML
@@ -106,7 +120,7 @@ public class EkranPowitalny {
         rejestracja.show();
 
         Rejestracja r=loader.getController();
-        r.przekazScene(rejestracja);
+        r.przekazScene(rejestracja,this);
 
         rejestracja.addEventHandler(WindowEvent.WINDOW_HIDDEN, new EventHandler<WindowEvent>() {
             @Override
@@ -122,15 +136,13 @@ public class EkranPowitalny {
         String login=Login.getText();
         String haslo=Haslo.getText();
 
-        if(login.equals("Admin")&&haslo.equals("Admin"))
+        if(login.equals(this.logowanie)&&haslo.equals(this.haslowanie))
         {
             OdpowiedzSerwera.setTextFill(Color.valueOf("green"));
             OdpowiedzSerwera.setText("Zalogowano");
             Login.setStyle("-fx-border-color: black");
             Haslo.setStyle("-fx-border-color: black");
             inicjujGlowny(false);
-            this.Tytul.setText("asdasdasd");
-            kopia.hide();
         }
         else {
             OdpowiedzSerwera.setText("Nieprawidlowy login lub haslo");
@@ -144,14 +156,39 @@ public class EkranPowitalny {
         FXMLLoader l=new FXMLLoader(getClass().getResource("/com/swietlica/EkranGlowny.fxml"));
         Parent root=l.load();
         glowny.setScene(new Scene(root));
-
         glowny.setTitle("Witamy w Swietlicy!!!");
-
         EkranGlowny dostagea=l.getController();
         dostagea.przekazScene(glowny);
         dostagea.inicjacja(czyGosc?"Gosc":Login.getText());
         glowny.show();
-        this.kopia.hide();
+        kopia.hide();
 
     }
+    private void komunikatON(Button but){but.setStyle(
+            "-fx-background-color:white;"+
+                    "-fx-text-fill:blue;");}
+
+    private void komunikatOFF(Button but){but.setStyle(
+            "-fx-background-color:blue;"
+    );}
+
+    @FXML
+    public void onlineKomunikatON(){komunikatON(this.wyborLogowanie);}
+    @FXML
+    public void onlineKomunikatOFF(){komunikatOFF(this.wyborLogowanie);}
+    @FXML
+    public void offlineKomunikatON(){komunikatON(this.wyborGosc);}
+    @FXML
+    public void offlineKomunikatOFF(){komunikatOFF(this.wyborGosc);}
+    @FXML
+    public void walKomunikatON(){komunikatON(this.probaLogowania);}
+    @FXML
+    public void walKomunikatOFF(){komunikatOFF(this.probaLogowania);}
+    @FXML
+    public void rejKomunikatON(){komunikatON(this.rejestracja);}
+    @FXML
+    public void rejKomunikatOFF(){komunikatOFF(this.rejestracja);}
+
+
+    public void nowekonto(String login, String haslo){this.logowanie=login; this.haslowanie=haslo;}
 }

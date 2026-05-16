@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.io.*;
 
 public class Inicjacja extends Application {
     @Override
@@ -18,6 +19,5 @@ public class Inicjacja extends Application {
         stage.show();
         EkranPowitalny ek=fxmlLoader.getController();
         ek.inicjujNasluchy(stage);
-
     }
 }

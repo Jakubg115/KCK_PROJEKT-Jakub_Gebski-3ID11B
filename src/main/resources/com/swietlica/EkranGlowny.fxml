@@ -25,16 +25,14 @@
          <menus>
             <Menu mnemonicParsing="false" text="Program">
               <items>
-                  <Menu mnemonicParsing="false" text="Przełącz użytkownika">
+                  <Menu mnemonicParsing="false" onAction="#listaUzytkownikow" text="Przełącz użytkownika">
                     <items>
                       <MenuItem mnemonicParsing="false" text="Ten profil" />
-                        <MenuItem mnemonicParsing="false" text="Gość" />
                     </items>
                   </Menu>
-                  <MenuItem mnemonicParsing="false" text="Wyloguj się" />
-                <MenuItem mnemonicParsing="false" text="Ustawienia" />
+                  <MenuItem mnemonicParsing="false" onAction="#wylogowanie" text="Wyloguj się" />
                   <SeparatorMenuItem mnemonicParsing="false" />
-                  <MenuItem mnemonicParsing="false" text="Zakończ działanie" />
+                  <MenuItem mnemonicParsing="false" onAction="#zakonczProgram" text="Zakończ działanie" />
               </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Widok">
@@ -167,11 +165,11 @@
                   </Label>
                   <HBox alignment="CENTER" spacing="50.0">
                      <children>
-                        <Button mnemonicParsing="false" onAction="#otworzPokoj" style="-fx-background-insets: 0; -fx-background-radius: 0; -fx-background-color: blue;" text="ZNAJDŹ POKÓJ" textFill="WHITE">
+                        <Button fx:id="znajdzPokoj" mnemonicParsing="false" onAction="#otworzPokoj" onMousePressed="#onlineKomunikatON" onMouseReleased="#onlineKomunikatOFF" style="-fx-background-insets: 0; -fx-background-radius: 0; -fx-background-color: blue;" text="ZNAJDŹ POKÓJ" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="18.0" />
                            </font></Button>
-                        <Button mnemonicParsing="false" style="-fx-background-insets: 0; -fx-background-radius: 0; -fx-background-color: blue;" text="GRAJ SAM" textFill="WHITE">
+                        <Button fx:id="grajSam" mnemonicParsing="false" onMousePressed="#offlineKomunikatON" onMouseReleased="#offlineKomunikatOFF" style="-fx-background-insets: 0; -fx-background-radius: 0; -fx-background-color: blue;" text="GRAJ SAM" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="18.0" />
                            </font>
@@ -189,7 +187,7 @@
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <Button mnemonicParsing="false" onAction="#zalaczPomoc" style="-fx-background-insets: 0; -fx-background-radius: 0; -fx-background-color: blue;" text="JAK GRAĆ?" textFill="WHITE">
+                  <Button fx:id="jakGrac" mnemonicParsing="false" onAction="#zalaczPomoc" onMousePressed="#jgKomunikatON" onMouseReleased="#jgKomunikatOFF" style="-fx-background-insets: 0; -fx-background-radius: 0; -fx-background-color: blue;" text="JAK GRAĆ?" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>

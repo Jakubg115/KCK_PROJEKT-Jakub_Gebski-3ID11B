@@ -10,14 +10,14 @@ public class ObiektPokoj extends GridPane {
 
     private ObiektPokojKontroller kontrolka;
 
-    public ObiektPokoj(int indeks, String[] gracze, Pokoje wskaznik) throws IOException {
+    public ObiektPokoj(int indeks, int iloscGraczy, Pokoje wskaznik) throws IOException {
         FXMLLoader loader=new FXMLLoader(getClass().getResource("/com/swietlica/ElementPokoj.fxml"));
         loader.setRoot(this);
         loader.load();
-
         this.kontrolka=loader.getController();
         this.kontrolka.przekazWskaznik(wskaznik);
         this.kontrolka.wstawindeks(indeks);
-        this.kontrolka.wstawWieluGraczy(gracze);
+        this.kontrolka.ustawRozmiarPokoju(iloscGraczy);
+        this.kontrolka.inicjuj();
     }
 }

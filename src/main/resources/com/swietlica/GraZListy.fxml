@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<fx:root fx:id="obiektDoListy" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#zwrocIndeks" prefWidth="317.0" style="-fx-border-color: lightgray;" type="AnchorPane" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.swietlica.Frontend.Komponenty.GraZListy.ObiektGraKontroler">
+<fx:root fx:id="obiektDoListy" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#zwrocIndeks" onMousePressed="#komunikatON" onMouseReleased="#komunikatOFF" prefWidth="317.0" style="-fx-border-color: lightgray;" type="AnchorPane" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.swietlica.Frontend.Komponenty.GraZListy.ObiektGraKontroler">
    <children>
       <ImageView fx:id="obrazPodgladowy" fitHeight="110.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
       <VBox alignment="CENTER" layoutX="38.0" layoutY="-52.0" prefWidth="212.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="110.0" AnchorPane.topAnchor="0.0">

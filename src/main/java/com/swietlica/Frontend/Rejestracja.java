@@ -5,6 +5,7 @@ import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 public class Rejestracja {
@@ -17,9 +18,11 @@ public class Rejestracja {
     private Label infoDlaUzytkownika,infoZwrotne;
 
     private Stage st;
+    private EkranPowitalny powrotne;
 
-    public void przekazScene(Stage st){
+    public void przekazScene(Stage st, EkranPowitalny ek){
         this.st=st;
+        this.powrotne=ek;
     }
 
 
@@ -57,6 +60,34 @@ public class Rejestracja {
     @FXML
     public void Walidacja(){
         infoZwrotne.setAlignment(Pos.CENTER);
-        st.close();
+        infoZwrotne.setTextFill(Color.valueOf("red"));
+        String nowyuz=nowyUzytkownik.getText();
+        String hasl=noweHaslo.getText();
+        if(!nowyuz.isEmpty())
+        {
+            if(!hasl.isEmpty())
+            {
+                String powt=powtorzoneHaslo.getText();
+                if (powt.equals(hasl))
+                {
+                    powrotne.nowekonto(nowyuz,hasl);
+                    st.close();
+                }
+                else {
+                    ustawInfoZwrotne("Rozne wartosci w polach zwiazanych z haslem. Musza byc takie same");
+                }
+            }
+            else
+            {
+                ustawInfoZwrotne("Brakuje hasla do weryfikacji");
+            }
+        }
+        else {
+            ustawInfoZwrotne("Uzytkownik nie moze byc utworzony! Brakuje nazwy uzytkownika");
+        }
+
+    }
+    private void ustawInfoZwrotne(String wiadomosc){
+        infoZwrotne.setText(wiadomosc);
     }
 }

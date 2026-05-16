@@ -41,9 +41,9 @@
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="nowyUzytkownik" onMouseClicked="#InfoLogin" prefWidth="210.0" promptText="Litery, znaki interpunkcyjne i cyfry" style="-fx-background-insets: 0; -fx-border-color: black; -fx-background-radius: 0;">
+                  <TextField fx:id="nowyUzytkownik" onMouseClicked="#InfoLogin" prefWidth="210.0" style="-fx-background-insets: 0; -fx-border-color: black; -fx-background-radius: 0;">
                      <VBox.margin>
-                        <Insets bottom="15.0" />
+                        <Insets bottom="15.0" left="5.0" right="5.0" />
                      </VBox.margin>
                   </TextField>
                   <Label text="Hasło">
@@ -56,7 +56,7 @@
                   </Label>
                   <PasswordField fx:id="noweHaslo" onMouseClicked="#InfoHaslo" style="-fx-background-insets: 0; -fx-border-color: black; -fx-background-radius: 0;">
                      <VBox.margin>
-                        <Insets bottom="15.0" />
+                        <Insets bottom="15.0" left="5.0" right="5.0" />
                      </VBox.margin>
                   </PasswordField>
                   <Label text="Hasło ponownie">
@@ -69,7 +69,7 @@
                   </Label>
                   <PasswordField fx:id="powtorzoneHaslo" onMouseClicked="#InfoHasPon" style="-fx-background-insets: 0; -fx-border-color: black; -fx-background-radius: 0;">
                      <VBox.margin>
-                        <Insets bottom="15.0" />
+                        <Insets bottom="15.0" left="5.0" right="5.0" />
                      </VBox.margin>
                   </PasswordField>
                   <Label text="E-mail">
@@ -82,7 +82,7 @@
                   </Label>
                   <TextField fx:id="mail" onMouseClicked="#InfoMail" style="-fx-background-insets: 0; -fx-border-color: black; -fx-background-radius: 0;">
                      <VBox.margin>
-                        <Insets bottom="5.0" />
+                        <Insets bottom="5.0" left="5.0" right="5.0" />
                      </VBox.margin>
                   </TextField>
                </children>
@@ -98,7 +98,7 @@
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <Label fx:id="infoZwrotne" layoutX="96.0" layoutY="173.0" textAlignment="CENTER" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="173.0">
+                  <Label fx:id="infoZwrotne" layoutX="96.0" layoutY="173.0" textAlignment="CENTER" wrapText="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="173.0">
                      <font>
                         <Font name="Carlito Bold" size="12.0" />
                      </font>
