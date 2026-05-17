@@ -1,28 +1,31 @@
 package com.swietlica.Frontend.Komponenty.ElementDoPokoji;
 
-import com.swietlica.Frontend.Pokoje;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.GridPane;
 
 import java.io.IOException;
-import java.net.URL;
 
 public class ObiektGracz extends GridPane {
 
-    private ObiektGraczKontroller kontrolka;
+    private final ObiektGraczKontroller kontrolka;
     public final static String DEFAULT="/Icons/DomyslnaIkonka.png";
 
-    public ObiektGracz(String urlZdjecie, String nazwaGracza, int ranking,int indeks, Pokoje wskaznik) throws IOException {
+    public ObiektGracz(String urlZdjecie, String nazwaGracza, int ranking) throws IOException {
         FXMLLoader loader=new FXMLLoader(getClass().getResource("/com/swietlica/ElementGracz.fxml"));
         loader.setRoot(this);
-        loader.load();
+        try {
+            loader.load();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+
         this.kontrolka=loader.getController();
-        this.kontrolka.przekazWskaznik(wskaznik);
         this.kontrolka.wstawZdjecie(getClass().getResource(urlZdjecie));
         this.kontrolka.wstawNazwe(nazwaGracza);
         this.kontrolka.wstawRanking(ranking);
-        this.kontrolka.wstawindeks(indeks);
     }
+
+    public String zwrocGracza(){return this.kontrolka.zwrocGracza();}
 
 
 }

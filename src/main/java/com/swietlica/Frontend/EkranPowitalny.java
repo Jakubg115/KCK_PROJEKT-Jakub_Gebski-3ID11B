@@ -46,6 +46,7 @@ public class EkranPowitalny {
     @FXML
     private HBox ramkaOpis;
 
+
     private Stage kopia;
 
     private SplitPane.Divider rozdzialka;
@@ -155,7 +156,7 @@ public class EkranPowitalny {
         Stage glowny=new Stage();
         FXMLLoader l=new FXMLLoader(getClass().getResource("/com/swietlica/EkranGlowny.fxml"));
         Parent root=l.load();
-        glowny.setScene(new Scene(root));
+        glowny.setScene(new Scene(root,800,600));
         glowny.setTitle("Witamy w Swietlicy!!!");
         EkranGlowny dostagea=l.getController();
         dostagea.przekazScene(glowny);

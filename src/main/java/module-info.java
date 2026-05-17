@@ -15,4 +15,5 @@ module com.swietlica {
     opens com.swietlica.Frontend.Komponenty.GraZListy to javafx.fxml;
     opens com.swietlica.Frontend.Komponenty.ElementDoEkranuPomoc to javafx.fxml;
     opens com.swietlica.Frontend.Komponenty.ElementDoPokoji to javafx.fxml;
+    opens com.swietlica.Frontend.Komponenty.PoleBoczne to javafx.fxml;
 }

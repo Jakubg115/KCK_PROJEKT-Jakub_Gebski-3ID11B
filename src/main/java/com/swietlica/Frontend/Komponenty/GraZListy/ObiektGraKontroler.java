@@ -7,11 +7,10 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
+import java.io.FileNotFoundException;
+import java.net.URL;
+
 public class ObiektGraKontroler {
-
-    private int indeksWliscie;
-
-    private EkranGlowny wskaznik;
 
     @FXML
     private Label nazwaGry, daneIlosciGraczy;
@@ -20,14 +19,6 @@ public class ObiektGraKontroler {
     @FXML
     private AnchorPane obiektDoListy;
 
-    public void zwrocIndeks(){wskaznik.zmienindeks(this.indeksWliscie);}
-    public int pobierzIndeks(){return this.indeksWliscie;}
-
-    public void przekazWskaznik(EkranGlowny ek){this.wskaznik =ek;}
-    public void ustawIndeks(int ind){
-        this.indeksWliscie=ind;
-    }
-
     public void ustawNazwe(String nazwa){
         this.nazwaGry.setText(nazwa);
     }
@@ -35,17 +26,17 @@ public class ObiektGraKontroler {
         return this.nazwaGry.getText();
     }
 
-    public void wstawObraz(String url){
-        obrazPodgladowy.setImage(new Image(url));
-    }
+
+    public void wstawObraz(URL url) throws FileNotFoundException{this.obrazPodgladowy.setImage(new Image(String.valueOf(url)));}
     public void wstawIloscGraczy(int ilosc){
         daneIlosciGraczy.setText("("+ilosc+")");
     }
-
+    @FXML
     public void komunikatON(){
         String style="-fx-background-color:#d9d9d9;"+"-fx-border-color:lightgray;";
         this.obiektDoListy.setStyle(style);
     }
+    @FXML
     public void komunikatOFF(){this.obiektDoListy.setStyle("-fx-border-color:lightgray;");}
 
 }

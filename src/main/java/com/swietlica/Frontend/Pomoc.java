@@ -6,39 +6,42 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Iterator;
 
 public class Pomoc {
 
-    private static int INDEKS=0;
     @FXML
-    private VBox listaGier= new VBox();
+    private ListView<ObiektPomoc> listaGier= new ListView<>();
     @FXML
     private Label tytul;
 
     private Stage stage;
 
-    public void inicjuj(VBox lista, int indeks) throws IOException {
-        ObservableList<Node> it=lista.getChildren();
-        for (Node node : it) {
-            this.listaGier.getChildren().add(new ObiektPomoc((ObiektGra) node, this));
+    public void inicjuj(ObservableList<ObiektGra> lista, int indeks) throws IOException {
+        Iterator<ObiektGra> it=lista.iterator();
+        System.out.println(indeks);
+        while (it.hasNext())
+        {
+            listaGier.getItems().add(new ObiektPomoc(it.next()));
         }
-        zmienIndeks(indeks);
-        przeczytajWybranyIndeks();
+        listaGier.getSelectionModel().select(indeks);
+        odczytajObiekt();
     }
 
     public Stage dajStage(){return this.stage;}
     public void wstawStage(Stage st){this.stage=st;}
-    public void zmienIndeks(int ind){INDEKS=ind;}
 
-    public void przeczytajWybranyIndeks(){
-        if(INDEKS!=-1){
-            String nazwa=((ObiektPomoc) this.listaGier.getChildren().get(INDEKS)).ZwrocNazwe();
-            tytul.setText(nazwa);
+    public void odczytajObiekt(){
+        if(listaGier.getSelectionModel().getSelectedIndex()>=0)
+        {
+            tytul.setText(listaGier.getSelectionModel().getSelectedItem().ZwrocNazwe());
         }
+
     }
 }
 

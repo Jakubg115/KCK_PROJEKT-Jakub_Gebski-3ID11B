@@ -7,14 +7,10 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.net.URL;
 
 public class ObiektGraczKontroller {
-    private int indeks;
-
-    private Pokoje wskaznik;
     @FXML
     private ImageView profilGracza;
     @FXML
@@ -22,18 +18,16 @@ public class ObiektGraczKontroller {
     @FXML
     private GridPane panel;
 
-    public void wstawindeks(int ind){this.indeks=ind;}
-    public void przekazWskaznik(Pokoje wsk){wskaznik=wsk;}
+
     public void wstawZdjecie(URL url) throws FileNotFoundException {this.profilGracza.setImage(new Image(String.valueOf(url)));}
     public void wstawNazwe(String nazwa){this.nazwaGracza.setText(nazwa);}
     public void wstawRanking(int ranking){this.ranking.setText("#"+ranking);}
 
-    @FXML
-    public void zwrocIndeks(){wskaznik.zmienIndeksGracza(this.indeks);}
+    public String zwrocGracza(){return this.nazwaGracza.getText();}
 
     public void komunikatON(){
-        String style="-fx-background-color:white;"+"-fx-border-color:gray;";
+        String style="-fx-background-color:lightgray;";
         this.panel.setStyle(style);
     }
-    public void komunikatOFF(){this.panel.setStyle("-fx-border-color:gray;");}
+    public void komunikatOFF(){this.panel.setStyle("");}
 }
